@@ -1,0 +1,6 @@
+c:\users\jmalv\documents\visual studio 2015\Projects\Ascii the Barbarian\Ascii the Barbarian\bin\Debug\Ascii the Barbarian.exe.config
+c:\users\jmalv\documents\visual studio 2015\Projects\Ascii the Barbarian\Ascii the Barbarian\bin\Debug\Ascii the Barbarian.exe
+c:\users\jmalv\documents\visual studio 2015\Projects\Ascii the Barbarian\Ascii the Barbarian\bin\Debug\Ascii the Barbarian.pdb
+c:\users\jmalv\documents\visual studio 2015\Projects\Ascii the Barbarian\Ascii the Barbarian\obj\Debug\Ascii the Barbarian.csprojResolveAssemblyReference.cache
+c:\users\jmalv\documents\visual studio 2015\Projects\Ascii the Barbarian\Ascii the Barbarian\obj\Debug\Ascii the Barbarian.exe
+c:\users\jmalv\documents\visual studio 2015\Projects\Ascii the Barbarian\Ascii the Barbarian\obj\Debug\Ascii the Barbarian.pdb
