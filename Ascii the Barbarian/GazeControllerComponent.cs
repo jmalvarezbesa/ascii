@@ -11,9 +11,8 @@ namespace Ascii_the_Barbarian
         private bool isMoveDown;
         private int v;
         
-        public GazeControllerComponent()
+        public GazeControllerComponent(int v)
         {
-            int v = 1;
             this.isMoveDown = true;
             this.v = v;
         }

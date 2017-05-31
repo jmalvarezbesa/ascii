@@ -11,6 +11,7 @@ namespace Ascii_the_Barbarian
 
         public GameObject CreateObject(int x, int y, MapSymbol symbol)
         {
+            int deltaTime = 33;
             if (symbol == MapSymbol.Player)
             {
                 IObserver AsciiControllerComponent = new PlayerControllerComponent();
@@ -24,7 +25,8 @@ namespace Ascii_the_Barbarian
             }
             else if (symbol == MapSymbol.Gazer)
             {
-                GameObject gaze = new GameObject(new GazeControllerComponent(), new GenericPhysicsComponent(), new GenericGraphicsComponent('G'), new NullAudioComponent());
+                int v = 1;
+                GameObject gaze = new GameObject(new GazeControllerComponent(v), new GenericPhysicsComponent(deltaTime), new GenericGraphicsComponent('G'), new NullAudioComponent());
                 gaze.Start(new int[] { x, y }, "Gaze");
                 return gaze;
             }
@@ -36,7 +38,7 @@ namespace Ascii_the_Barbarian
             }
             else if (symbol == MapSymbol.Arrow)
             {
-                GameObject arrow = new GameObject(new ArrowControllerComponent(1), new GenericPhysicsComponent(), new GenericGraphicsComponent('~'), new NullAudioComponent());
+                GameObject arrow = new GameObject(new ArrowControllerComponent(1), new GenericPhysicsComponent(deltaTime), new GenericGraphicsComponent('~'), new NullAudioComponent());
                 arrow.Start(new int[] { x, y }, "Arrow");
                 return arrow;
             }

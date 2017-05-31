@@ -10,9 +10,8 @@ namespace Ascii_the_Barbarian
     {
         private double deltaTime;
 
-        public GenericPhysicsComponent()
+        public GenericPhysicsComponent(int deltaTime)
         {
-            int deltaTime = 33;
             this.deltaTime = (double)(deltaTime / 1000.0);
         }
 
