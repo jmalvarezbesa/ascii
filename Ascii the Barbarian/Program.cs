@@ -44,59 +44,36 @@ namespace Ascii_the_Barbarian
                 Console.Write(gameObject.GetSymbol());
             } 
         }
-        static void addWallLine(int x, int y, int length, bool horizontal)
-        {
-            for (int i = 0; i < length; i++)
-            {
-                GameObject wall = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('#'), new NullAudioComponent());
-                if (horizontal)
-                {
-                    wall.Start(new int[] { x + i, y }, "Wall");
-                    gameObjects.Add(wall);
-                }
-                else
-                {
-                    wall.Start(new int[] { x, y + i }, "Wall");
-                    gameObjects.Add(wall);
-                }
-
-                
-            }
-        }
-
-        static void Generateboard()
-        {
-            addWallLine(40, 10, 60, true);
-            addWallLine(40, 20, 60, true);
-            addWallLine(40, 10, 10, false);
-            addWallLine(100, 10, 11, false);
-        }
-
+        
         static void Main(string[] args)
         {
-            IObserver AsciiControllerComponent = new PlayerControllerComponent();
-            IObserver AsciiAudioComponent = new GenericAudioComponent();
-            AsciiPhysicsComponent AsciiPhysicsComponent = new AsciiPhysicsComponent();
-            AsciiPhysicsComponent.AddObserver(AsciiControllerComponent);
-            AsciiPhysicsComponent.AddObserver(AsciiAudioComponent);
+            Level lvl = new Level();
+            GameObjectFactory object_factory = new GameObjectFactory();
+            GameObject ascii = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('X'), new NullAudioComponent());
 
-            GameObject ascii = new GameObject(new PlayerControllerComponent(), AsciiPhysicsComponent, new GenericGraphicsComponent('@'), new NullAudioComponent());
-            GameObject gaze = new GameObject(new GazeControllerComponent(), new GenericPhysicsComponent(), new GenericGraphicsComponent('G'), new NullAudioComponent());
-            GameObject skeleton = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('S'), new NullAudioComponent());
-            GameObject arrow = new GameObject(new ArrowControllerComponent(1), new GenericPhysicsComponent(), new GenericGraphicsComponent('~'), new NullAudioComponent());
-            GameObject exit = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('X'), new NullAudioComponent());
+            lvl.LoadFromFile("test.txt");
 
-            ascii.Start(new int[] { 1, 1 }, "User");
-            gaze.Start(new int[] { 10, 0 }, "Gaze");
-            skeleton.Start(new int[] { 20, 20 }, "Skeleton");
-            arrow.Start(new int[] { 20, 20 }, "Arrow");
-            exit.Start(new int[] { 18, 18 }, "Exit");
-
-            gameObjects.Add(gaze);
-            gameObjects.Add(skeleton);
-            gameObjects.Add(arrow);
-            gameObjects.Add(exit);
-            Generateboard();
+            for (int x = 0; x < lvl.Width; x++)
+            {
+                for (int y = 0; y < lvl.Height; y++)
+                {
+                    MapSymbol current_symbol = lvl.GetMapSymbol(x, y);
+                    if (current_symbol == MapSymbol.Player)
+                    {
+                        ascii = object_factory.CreateObject(x, y, current_symbol);
+                    } else {
+                        GameObject current_object = object_factory.CreateObject(x, y, current_symbol);
+                        if (current_object == null)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            gameObjects.Add(current_object);
+                        }
+                    }
+                }
+            }
 
             Console.CursorVisible = false;
             Console.SetCursorPosition(1,1);

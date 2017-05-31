@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Part8
+namespace Ascii_the_Barbarian
 {
     enum MapSymbol
     {
