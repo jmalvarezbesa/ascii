@@ -46,6 +46,7 @@
     <Compile Include="ArrowControllerComponent.cs" />
     <Compile Include="AsciiPhysicsComponent.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="GameObjectFactory.cs" />
     <Compile Include="GazeControllerComponent.cs" />
     <Compile Include="GenericAudioComponent.cs" />
     <Compile Include="GenericPhysicsComponent.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="IObserver.cs" />
     <Compile Include="IPhysicsComponent.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="ICreator.cs" />
     <Compile Include="NullAudioComponent.cs" />
     <Compile Include="NullControllerComponent.cs" />
     <Compile Include="NullPhysicsComponent.cs" />
