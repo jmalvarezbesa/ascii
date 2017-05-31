@@ -25,10 +25,10 @@ namespace Ascii_the_Barbarian
             if (Console.KeyAvailable)
             {
                 ConsoleKeyInfo KeyPress = Console.ReadKey();
-                if (KeyPress.Equals(movement.Up)) {return movement.Up; }
-                if (KeyPress.Equals(movement.Down)) { return movement.Down; }
-                if (KeyPress.Equals(movement.Left)) { return movement.Left; }
-                if (KeyPress.Equals(movement.Right)) { return movement.Right; }
+                if ((int)KeyPress.Key == (int)movement.Up) {return movement.Up; }
+                if ((int)KeyPress.Key == (int)movement.Down) { return movement.Down; }
+                if ((int)KeyPress.Key == (int)movement.Left) { return movement.Left; }
+                if ((int)KeyPress.Key == (int)movement.Right) { return movement.Right; }
             }
             return movement.F;
         }

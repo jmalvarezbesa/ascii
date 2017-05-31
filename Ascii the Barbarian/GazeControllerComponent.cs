@@ -9,27 +9,28 @@ namespace Ascii_the_Barbarian
     class GazeControllerComponent : IControllerComponent
     {
         private bool isMoveDown;
-        private int counter;
+        private int v;
         
         public GazeControllerComponent()
         {
-            this.counter = 0;
+            int v = 1;
             this.isMoveDown = true;
+            this.v = v;
         }
 
         public void Update(GameObject gameObject, movement command)
         {
-            if (counter % 3 == 0)
+            gameObject.positionBuffer[0] = 0;
+            if (gameObject.position[1] == 10) isMoveDown = false;
+            if (gameObject.position[1] == 0) isMoveDown = true;
+            if (isMoveDown)
             {
-                if (gameObject.position[1] == 10) isMoveDown = false;
-                if (gameObject.position[1] == 0) isMoveDown = true;
-                if (isMoveDown) gameObject.velocity[1] = 1;
-                else
-                {
-                    gameObject.velocity[1] = -1;
-                }
+                gameObject.velocity[1] = v;
             }
-            counter++;
+            else
+            {
+                gameObject.velocity[1] = -v;
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Ascii_the_Barbarian
     {
         public char symbol;
         public int[] position;
+        public double[] positionBuffer;
         public int[] velocity;
         public string tag;
         public bool existCollition = false;
@@ -27,6 +28,7 @@ namespace Ascii_the_Barbarian
             this.graphicsCom = graphicsCom;
             this.symbol = graphicsCom.GetSymbol();
             this.velocity = new int[]{ 0, 0};
+            this.positionBuffer = new double[] { 0.0, 0.0};
         }
         public void Start(int[] position, string tag)
         {

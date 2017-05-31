@@ -19,13 +19,10 @@ namespace Ascii_the_Barbarian
 
         public void Update(GameObject gameObject, movement command)
         {
-            if (counter == 40)
-            {
-                gameObject.velocity[0] = rnd.Next(0, Console.WindowWidth) - gameObject.position[0];
-                gameObject.velocity[1] = rnd.Next(0, Console.WindowHeight) - gameObject.position[1];
-                counter = 0;
-            }
-            counter++;
+            gameObject.velocity[0] = rnd.Next(0, Console.WindowWidth);
+                gameObject.velocity[1] = rnd.Next(0, Console.WindowHeight);
+                gameObject.position[0] = 20;
+                gameObject.position[1] = 20;
         }
     }
 }

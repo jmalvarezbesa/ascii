@@ -31,18 +31,24 @@ namespace Ascii_the_Barbarian
             switch (command)
             {
                 case movement.Right:
-                    ascii.velocity[0] += 1;
+                    ascii.velocity[0] = 1;
+                    ascii.velocity[1] = 0;
                     break;
                 case movement.Left:
-                    ascii.velocity[0] -= 1;
+                    ascii.velocity[0] = -1;
+                    ascii.velocity[1] = 0;
                     break;
                 case movement.Up:
-                    ascii.velocity[1] -= 1;
+                    ascii.velocity[0] = 0;
+                    ascii.velocity[1] = -1;
                     break;
                 case movement.Down:
-                    ascii.velocity[1] += 1;
+                    ascii.velocity[0] = 0;
+                    ascii.velocity[1] = 1;
                     break;
                 case movement.F:
+                    ascii.velocity[0] = 0;
+                    ascii.velocity[1] = 0;
                     break;
             }
         }
