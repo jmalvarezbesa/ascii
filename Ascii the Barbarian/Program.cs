@@ -51,7 +51,7 @@ namespace Ascii_the_Barbarian
             GameObjectFactory object_factory = new GameObjectFactory();
             GameObject ascii = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('X'), new NullAudioComponent());
 
-            lvl.LoadFromFile("test.txt");
+            lvl.LoadFromFile("rat_level.txt");
 
             for (int x = 0; x < lvl.Width; x++)
             {
@@ -74,6 +74,7 @@ namespace Ascii_the_Barbarian
                     }
                 }
             }
+
 
             Console.CursorVisible = false;
             Console.SetCursorPosition(1,1);

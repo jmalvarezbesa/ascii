@@ -26,7 +26,7 @@ namespace Ascii_the_Barbarian
             }
         }
 
-        public void Update(GameObject ascii, movement command)
+        public void Update(GameObject ascii, movement command, List<GameObject> gameObjects)
         {
             switch (command)
             {

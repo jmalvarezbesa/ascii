@@ -8,7 +8,7 @@ namespace Ascii_the_Barbarian
 {
     interface IControllerComponent
     {
-        void Update(GameObject gameObject, movement command);
+        void Update(GameObject gameObject, movement command, List<GameObject> gameObjects);
     }
     
 }

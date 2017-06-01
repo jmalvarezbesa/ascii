@@ -17,11 +17,10 @@ namespace Ascii_the_Barbarian
             this.v = v;
         }
 
-        public void Update(GameObject gameObject, movement command)
+        public void Update(GameObject gameObject, movement command, List<GameObject> gameObjects)
         {
-            gameObject.positionBuffer[0] = 0;
             if (gameObject.position[1] == 10) isMoveDown = false;
-            if (gameObject.position[1] == 0) isMoveDown = true;
+            if (gameObject.position[1] == 1) isMoveDown = true;
             if (isMoveDown)
             {
                 gameObject.velocity[1] = v;

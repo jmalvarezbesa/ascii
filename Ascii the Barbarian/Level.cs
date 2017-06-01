@@ -15,13 +15,15 @@ namespace Ascii_the_Barbarian
         VerticalWall = '|',
         HorizontalWall = '-',
         Space = ' ',
-        Exit = 'E'
+        Exit = 'E',
+        Rat = 'R',
+        Zombie = 'Z'
     }
 
     /// <summary>
     /// 
     /// </summary>
-    class Level
+    public class Level
     {
         List<List<MapSymbol>> map = new List<List<MapSymbol>>();
         int width = 0;

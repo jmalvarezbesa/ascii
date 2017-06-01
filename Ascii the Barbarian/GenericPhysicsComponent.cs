@@ -17,14 +17,14 @@ namespace Ascii_the_Barbarian
 
         public void Update(GameObject gameObject, List<GameObject> gameObjects)
         {
+            
             //Pf = Pi + v * deltaTime
             //positionBuffer exist to compensate the movement
-
             double vx = (double)gameObject.velocity[0] * deltaTime + gameObject.positionBuffer[0];
             double vy = (double)gameObject.velocity[1] * deltaTime + gameObject.positionBuffer[1];
-
+            
             //x
-            if (gameObject.velocity[0] > 0)
+            if (vx > 0)
             {
                 if (vx < 1)
                 {
@@ -49,7 +49,7 @@ namespace Ascii_the_Barbarian
                 }
             }
             //y
-            if (gameObject.velocity[1] > 0)
+            if (vy > 0)
             {
                 if (vy < 1)
                 {
@@ -63,7 +63,7 @@ namespace Ascii_the_Barbarian
             }
             else
             {
-                if (vy <-1)
+                if (vy >-1)
                 {
                     gameObject.positionBuffer[1] += Math.Round(vy, 4);
                 }
@@ -73,7 +73,6 @@ namespace Ascii_the_Barbarian
                     gameObject.positionBuffer[1] = Math.Round(vy - Math.Truncate(vy), 4);
                 }
             }
-
         }
     }
 }

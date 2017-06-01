@@ -47,7 +47,7 @@ namespace Ascii_the_Barbarian
 
         public void Update(List<GameObject> gameObjects, char graphics, movement command)
         {
-            controlCom.Update(this, command);
+            controlCom.Update(this, command, gameObjects);
             physicsCom.Update(this, gameObjects);
             audioCom.Update(this);
             graphicsCom.Update(this, graphics);
