@@ -21,9 +21,9 @@ namespace Ascii_the_Barbarian
             //positionBuffer exist to compensate the movement
             double vx = (double)gameObject.velocity[0] * deltaTime + gameObject.positionBuffer[0];
             double vy = (double)gameObject.velocity[1] * deltaTime + gameObject.positionBuffer[1];
-            
+
             //x
-            if (vx - gameObject.positionBuffer[0] > 0)
+            if (gameObject.velocity[0] > 0)
             {
                 if (vx < 1)
                 {
@@ -32,12 +32,12 @@ namespace Ascii_the_Barbarian
                 else
                 {
                     gameObject.position[0] += Convert.ToInt32(Math.Truncate(vx));
-                    gameObject.positionBuffer[0] = Math.Round(vx - Math.Truncate(vx),4);
+                    gameObject.positionBuffer[0] = Math.Round(vx - Math.Truncate(vx), 4);
                 }
             }
             else
             {
-                if (vx > -1)
+                if (vx < -1)
                 {
                     gameObject.positionBuffer[0] += vx;
                 }
