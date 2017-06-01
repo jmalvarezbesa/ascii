@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ascii_the_Barbarian
 {
-    class GameObjectFactory : ICreator
+    class GameObjectFactory
     {
 
         public GameObject CreateObject(int x, int y, MapSymbol symbol)
@@ -48,11 +48,23 @@ namespace Ascii_the_Barbarian
                 exit.Start(new int[] { x, y }, "Exit");
                 return exit;
             }
-            else if (symbol == MapSymbol.VerticalWall || symbol == MapSymbol.HorizontalWall)
+            else if (symbol == MapSymbol.VerticalWall)
             {
-                GameObject wall = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('#'), new NullAudioComponent());
+                GameObject wall = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('|'), new NullAudioComponent());
                 wall.Start(new int[] { x, y }, "Wall");
                 return wall;
+            }
+            else if (symbol == MapSymbol.HorizontalWall)
+            {
+                GameObject wall = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('-'), new NullAudioComponent());
+                wall.Start(new int[] { x, y }, "Wall");
+                return wall;
+            }
+            else if (symbol == MapSymbol.Rat)
+            {
+                GameObject rat = new GameObject(new RatControllerComponent(), new GenericPhysicsComponent(deltaTime), new GenericGraphicsComponent('R'), new NullAudioComponent());
+                rat.Start(new int[] { x, y }, "Rat");
+                return rat;
             }
             else if (symbol == MapSymbol.Space || symbol == MapSymbol.HorizontalWall)
             {

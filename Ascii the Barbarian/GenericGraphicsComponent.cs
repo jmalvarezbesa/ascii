@@ -18,9 +18,9 @@ namespace Ascii_the_Barbarian
         {
             return this.symbol;
         }
-        public void Update(GameObject ascii, char graphics)
+        public void Update(GameObject gameObject, DoubleBuffer.DoubleGraphicsBuffer doubleBuffer)
         {
-
+            doubleBuffer.Draw(gameObject.GetSymbol(), gameObject.position[0], gameObject.position[1]);
         }
     }
 }

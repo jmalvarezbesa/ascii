@@ -15,7 +15,8 @@ namespace Ascii_the_Barbarian
         VerticalWall = '|',
         HorizontalWall = '-',
         Space = ' ',
-        Exit = 'E'
+        Exit = 'E',
+        Rat = 'R'
     }
 
     /// <summary>
