@@ -52,6 +52,8 @@
     <Compile Include="GenericAudioComponent.cs" />
     <Compile Include="GenericPhysicsComponent.cs" />
     <Compile Include="GenericGraphicsComponent.cs" />
+    <Compile Include="Graph.cs" />
+    <Compile Include="GraphAlgorithmSolver.cs" />
     <Compile Include="IAudioComponent.cs" />
     <Compile Include="IControllerComponent.cs" />
     <Compile Include="IGraphicsComponent.cs" />

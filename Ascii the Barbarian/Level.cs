@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ascii_the_Barbarian
 {
-    enum MapSymbol
+    public enum MapSymbol
     {
         Player = 'P',
         Gazer = 'G',
@@ -16,13 +16,14 @@ namespace Ascii_the_Barbarian
         HorizontalWall = '-',
         Space = ' ',
         Exit = 'E',
-        Rat = 'R'
+        Rat = 'R',
+        Zombie = 'Z'
     }
 
     /// <summary>
     /// 
     /// </summary>
-    class Level
+    public class Level
     {
         List<List<MapSymbol>> map = new List<List<MapSymbol>>();
         int width = 0;

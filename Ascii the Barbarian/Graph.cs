@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Helpers
+namespace Ascii_the_Barbarian
 {
     /// <summary>
     /// A simple 2D cell.
