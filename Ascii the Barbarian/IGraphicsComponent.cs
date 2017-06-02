@@ -8,7 +8,7 @@ namespace Ascii_the_Barbarian
 {
     interface IGraphicsComponent
     {
-        void Update(GameObject gameObject, char graphic);
+        void Update(GameObject gameObject, DoubleBuffer.DoubleGraphicsBuffer doubleBuffer);
         char GetSymbol();
     }
 }

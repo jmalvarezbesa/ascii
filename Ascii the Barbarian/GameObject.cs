@@ -45,12 +45,12 @@ namespace Ascii_the_Barbarian
             return symbol;
         }
 
-        public void Update(List<GameObject> gameObjects, char graphics, movement command)
+        public void Update(List<GameObject> gameObjects, DoubleBuffer.DoubleGraphicsBuffer doubleBuffer, movement command)
         {
             controlCom.Update(this, command, gameObjects);
             physicsCom.Update(this, gameObjects);
             audioCom.Update(this);
-            graphicsCom.Update(this, graphics);
+            graphicsCom.Update(this, doubleBuffer);
         }
     }
 }

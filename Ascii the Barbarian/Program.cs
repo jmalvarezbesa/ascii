@@ -18,6 +18,7 @@ namespace Ascii_the_Barbarian
     class Program
     {
         static public List<GameObject> gameObjects = new List<GameObject>();
+        static public DoubleBuffer.DoubleGraphicsBuffer doubleBuffer;
         static int FPMS = 33;    //frames per milliseconds
 
         static movement ProcessInput()
@@ -33,16 +34,9 @@ namespace Ascii_the_Barbarian
             return movement.F;
         }
 
-        static void Render(GameObject ascii)
+        static void Render(GameObject ascii, DoubleBuffer.DoubleGraphicsBuffer doubleBuffer)
         {
-            Console.Clear();
-            Console.SetCursorPosition(ascii.GetPosition()[0], ascii.GetPosition()[1]);
-            Console.Write(ascii.GetSymbol());
-            foreach (GameObject gameObject in gameObjects)
-            {
-                Console.SetCursorPosition(gameObject.GetPosition()[0], gameObject.GetPosition()[1]);
-                Console.Write(gameObject.GetSymbol());
-            } 
+            doubleBuffer.Render();
         }
         
         static void Main(string[] args)
@@ -52,6 +46,8 @@ namespace Ascii_the_Barbarian
             GameObject ascii = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('X'), new NullAudioComponent());
 
             lvl.LoadFromFile("rat_level.txt");
+
+            doubleBuffer = new DoubleBuffer.DoubleGraphicsBuffer(lvl.Width, lvl.Height, ConsoleColor.White, ConsoleColor.DarkGreen);
 
             for (int x = 0; x < lvl.Width; x++)
             {
@@ -83,14 +79,14 @@ namespace Ascii_the_Barbarian
                 System.Diagnostics.Stopwatch time = System.Diagnostics.Stopwatch.StartNew();
                 time.Start();
                 movement positions = ProcessInput();
-
-                ascii.Update(gameObjects, '@', positions);
+                doubleBuffer.Clear();
+                ascii.Update(gameObjects, doubleBuffer, positions);
 
                 foreach (GameObject gameObject in gameObjects)
                 {
-                    gameObject.Update(gameObjects, '@', positions);
+                    gameObject.Update(gameObjects, doubleBuffer, positions);
                 }
-                Render(ascii);
+                Render(ascii, doubleBuffer);
                 time.Stop(); 
                 int elapsed = Convert.ToInt32(time.ElapsedMilliseconds);
                 if (elapsed < FPMS) Thread.Sleep(FPMS - elapsed);

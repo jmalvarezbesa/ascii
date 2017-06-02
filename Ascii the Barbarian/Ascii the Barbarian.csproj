@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="ArrowControllerComponent.cs" />
     <Compile Include="AsciiPhysicsComponent.cs" />
+    <Compile Include="DoubleGraphicsBuffer.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameObjectFactory.cs" />
     <Compile Include="GazeControllerComponent.cs" />
