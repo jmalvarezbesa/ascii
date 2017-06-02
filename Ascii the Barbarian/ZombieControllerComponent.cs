@@ -10,6 +10,7 @@ namespace Ascii_the_Barbarian
     {
         private int v;
         private int index;
+        private int index2;
         private GraphAlgorithmSolver solver;
         private Level lvl;
         private List<Tuple<int, int>> path; 
@@ -20,26 +21,41 @@ namespace Ascii_the_Barbarian
             this.lvl = level;
             this.v = 1;
             this.index = 0;
+            this.index2 = 0;
             this.path = new List<Tuple<int, int>>();
         }
         public void Update(GameObject gameObject, movement command, List<GameObject> gameObjects)
         {
-            if (index % 4 == 0)
+            GameObject ascii = gameObject;
+            if (index % 2 == 0)
             {
-                foreach (GameObject go in gameObjects) {
-                    if (go.tag == "User")
+                if (index2 % 5 == 0)
+                {
+                    foreach (GameObject go in gameObjects)
                     {
-                        path = solver.AAlgorithmSolver(go, gameObject, lvl);
-                        if (path.Count != 0)
+                        if (go.tag == "User")
                         {
-                            Console.WriteLine(path);
+                            ascii = go;
+                            path = solver.AAlgorithmSolver(go, gameObject, lvl);
+                            int difx = ascii.position[0] - path[path.Count - 1].Item1;
+                            int dify = ascii.position[1] - path[path.Count - 1].Item2;
+                            if (difx != 0) { gameObject.velocity[0] = -v * (difx / Math.Abs(difx)); }
+                            if (dify != 0) { gameObject.velocity[1] = -v * (dify / Math.Abs(dify)); }
+                            break;
                         }
                     }
                 }
-            }
-            else
-            {
-
+                else
+                {
+                    if ((path.Count - 1 - index2 % 5) > 0)
+                    {
+                        int difx = ascii.position[0] - path[path.Count - 1 - index2%5].Item1;
+                        int dify = ascii.position[1] - path[path.Count - 1 - index2%5].Item2;
+                        if (difx != 0) { gameObject.velocity[0] = -v * (difx / Math.Abs(difx)); }
+                        if (dify != 0) { gameObject.velocity[1] = -v * (dify / Math.Abs(dify)); }
+                    }
+                }
+                index2++;
             }
             index++;
         }
