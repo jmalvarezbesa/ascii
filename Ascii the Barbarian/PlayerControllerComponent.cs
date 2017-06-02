@@ -17,7 +17,7 @@ namespace Ascii_the_Barbarian
                 Console.ReadLine();
                 Environment.Exit(1);
             }
-            else if (!(event_ == "Wall"))
+            else if (!(event_ == "Wall" || event_ == "Rat"))
             {
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("Ha perdido el juego");

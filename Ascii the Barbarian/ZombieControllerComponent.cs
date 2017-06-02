@@ -10,7 +10,7 @@ namespace Ascii_the_Barbarian
     {
         public void Update(GameObject gameObject, movement command, List<GameObject> gameObjects)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
