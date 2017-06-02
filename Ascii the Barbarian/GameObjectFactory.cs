@@ -44,7 +44,7 @@ namespace Ascii_the_Barbarian
             }
             else if (symbol == MapSymbol.Arrow)
             {
-                GameObject arrow = new GameObject(new ArrowControllerComponent(1), new GenericPhysicsComponent(deltaTime/2), new GenericGraphicsComponent('~'), new NullAudioComponent());
+                GameObject arrow = new GameObject(new ArrowControllerComponent(1, lvl.Width, lvl.Height), new GenericPhysicsComponent(deltaTime/2), new GenericGraphicsComponent('~'), new NullAudioComponent());
                 arrow.Start(new int[] { x, y }, "Arrow");
                 return arrow;
             }
