@@ -29,8 +29,7 @@ namespace Ascii_the_Barbarian
                     {
                         int x = 0;
                         path = solver.AAlgorithmSolver(go, gameObject);
-                        Console.WriteLine("Largo");
-                        Console.WriteLine(path.Count);
+
                         foreach (Tuple<int, int> path_t in path){
                             Console.WriteLine(path_t);
                             Console.WriteLine(x);
