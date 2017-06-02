@@ -9,14 +9,9 @@ namespace Ascii_the_Barbarian
 
     class GraphAlgorithmSolver
     {
-        private Graph graph;
-        public GraphAlgorithmSolver(Graph graph)
+        public List<Tuple<int, int>> AAlgorithmSolver(GameObject ascii, GameObject zombie, Level lvl)
         {
-            this.graph = graph;
-        }
-
-        public List<Tuple<int, int>> AAlgorithmSolver(GameObject ascii, GameObject zombie)
-        {
+            Graph graph = new Graph(lvl);
             List<Tuple<int, int>> path = new List<Tuple<int, int>>();
             GraphNode<Cell> end_node = graph.GetNode(zombie.position[0], zombie.position[1]);
             GraphNode<Cell> start_node = graph.GetNode(ascii.position[0], ascii.position[1]);
