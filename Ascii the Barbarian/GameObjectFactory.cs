@@ -68,7 +68,7 @@ namespace Ascii_the_Barbarian
             }
             else if (symbol == MapSymbol.Zombie)
             {
-                GameObject rat = new GameObject(new RatControllerComponent(), new GenericPhysicsComponent(deltaTime), new GenericGraphicsComponent('R'), new NullAudioComponent());
+                GameObject rat = new GameObject(new ZombieControllerComponent(), new GenericPhysicsComponent(deltaTime), new GenericGraphicsComponent('Z'), new NullAudioComponent());
                 rat.Start(new int[] { x, y }, "Zombie");
                 return rat;
             }

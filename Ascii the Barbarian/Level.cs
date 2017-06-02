@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ascii_the_Barbarian
 {
-    enum MapSymbol
+    public enum MapSymbol
     {
         Player = 'P',
         Gazer = 'G',

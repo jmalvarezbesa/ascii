@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Ascii_the_Barbarian
 {
-    class ZombieControllerComponent
+    class ZombieControllerComponent : IControllerComponent
     {
+        public void Update(GameObject gameObject, movement command, List<GameObject> gameObjects)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
