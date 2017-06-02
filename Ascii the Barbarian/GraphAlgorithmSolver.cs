@@ -63,14 +63,14 @@ namespace Ascii_the_Barbarian
                     }
                     return path;
                 }
-                List<GraphNode<Cell>> s_neighbors = graph.GetNeighbors(start_node);
+                List<GraphNode<Cell>> s_neighbors = graph.GetNeighbors(s);
 
                 foreach (GraphNode<Cell> s_prim in s_neighbors)
                 {
                     bool s_prim_in_neighbor = false;
-                    foreach (GraphNode<Cell> s_neighbor in VISITED)
+                    foreach (GraphNode<Cell> s_visited in VISITED)
                     {
-                        if (s_prim.Data.x == s_neighbor.Data.x && s_prim.Data.y == s_neighbor.Data.y)
+                        if (s_prim.Data.x == s_visited.Data.x && s_prim.Data.y == s_visited.Data.y)
                         {
                             s_prim_in_neighbor = true;
                         }
@@ -84,8 +84,8 @@ namespace Ascii_the_Barbarian
                             TO_VISIT.Add(s_prim);
                         }
                     }
-                    VISITED.Add(s);
                 }
+                VISITED.Add(s);
             }
             return path;
         }
