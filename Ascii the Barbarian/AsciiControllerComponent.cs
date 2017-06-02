@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ascii_the_Barbarian
 {
-    class PlayerControllerComponent : IControllerComponent, IObserver
+    class AsciiControllerComponent : IControllerComponent, IObserver
     {
         public void OnNotify(GameObject object_, string event_)
         {

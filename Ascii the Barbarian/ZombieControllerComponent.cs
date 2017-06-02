@@ -24,7 +24,7 @@ namespace Ascii_the_Barbarian
         {
             if (index % 4 == 0)
             {
-                path = solver.AAlgorithmSolver( , gameObject);
+               // path = solver.AAlgorithmSolver( , gameObject);
             }
             else
             {

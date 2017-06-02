@@ -56,6 +56,7 @@ namespace Ascii_the_Barbarian
                     if (current_symbol == MapSymbol.Player)
                     {
                         ascii = object_factory.CreateObject(x, y, current_symbol);
+                        gameObjects.Add(ascii);
                     } else {
                         GameObject current_object = object_factory.CreateObject(x, y, current_symbol);
                         if (current_object == null)

@@ -15,7 +15,7 @@ namespace Ascii_the_Barbarian
             ascii.existCollition = false;
             foreach (GameObject gameObject in gameObjects)
             {
-                if (gameObject.GetPosition()[0] == (ascii.position[0] + ascii.velocity[0]) && (gameObject.GetPosition()[1] == ascii.position[1] + ascii.velocity[1]))
+                if ((gameObject.GetPosition()[0] == (ascii.position[0] + ascii.velocity[0]) && (gameObject.GetPosition()[1] == ascii.position[1] + ascii.velocity[1])) && gameObject.tag != "User") 
                 {
                     ascii.existCollition = true;
                     ascii.velocity = new int[] { 0, 0 };

@@ -20,12 +20,12 @@ namespace Ascii_the_Barbarian
             int deltaTime = 33;
             if (symbol == MapSymbol.Player)
             {
-                IObserver AsciiControllerComponent = new PlayerControllerComponent();
+                IObserver AsciiControllerComponent = new AsciiControllerComponent();
                 IObserver AsciiAudioComponent = new GenericAudioComponent();
                 AsciiPhysicsComponent AsciiPhysicsComponent = new AsciiPhysicsComponent();
                 AsciiPhysicsComponent.AddObserver(AsciiControllerComponent);
                 AsciiPhysicsComponent.AddObserver(AsciiAudioComponent);
-                GameObject ascii = new GameObject(new PlayerControllerComponent(), AsciiPhysicsComponent, new GenericGraphicsComponent('@'), new NullAudioComponent());
+                GameObject ascii = new GameObject(new AsciiControllerComponent(), AsciiPhysicsComponent, new GenericGraphicsComponent('@'), new NullAudioComponent());
                 ascii.Start(new int[] { x, y }, "User");
                 return ascii;
             }
