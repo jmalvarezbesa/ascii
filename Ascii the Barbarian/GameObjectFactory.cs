@@ -66,6 +66,12 @@ namespace Ascii_the_Barbarian
                 rat.Start(new int[] { x, y }, "Rat");
                 return rat;
             }
+            else if (symbol == MapSymbol.Zombie)
+            {
+                GameObject rat = new GameObject(new RatControllerComponent(), new GenericPhysicsComponent(deltaTime), new GenericGraphicsComponent('R'), new NullAudioComponent());
+                rat.Start(new int[] { x, y }, "Zombie");
+                return rat;
+            }
             else if (symbol == MapSymbol.Space || symbol == MapSymbol.HorizontalWall)
             {
                 return null;
