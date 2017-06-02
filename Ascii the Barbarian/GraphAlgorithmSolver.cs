@@ -18,7 +18,7 @@ namespace Ascii_the_Barbarian
         public List<Tuple<int, int>> AAlgorithmSolver(GameObject ascii, GameObject zombie)
         {
             List<Tuple<int, int>> path = new List<Tuple<int, int>>();
-            GraphNode <Cell> start_node = graph.GetNode(ascii.position[0], ascii.position[1]);
+            GraphNode<Cell> start_node = graph.GetNode(ascii.position[0], ascii.position[1]);
             start_node.GValue = 0;
             // the rest of the Nodes start with int36.MaxValue
             List<GraphNode<Cell>> TO_VISIT = new List<GraphNode<Cell>>();
@@ -37,33 +37,38 @@ namespace Ascii_the_Barbarian
                 double euclidean_distance = Math.Sqrt(Math.Pow((actual_node_x - end_node_x), 2) + Math.Pow((actual_node_y - end_node_y), 2));
                 graph_node.HValue = euclidean_distance;
             }
-            List<GraphNode<Cell>> start_neighbors = graph.GetNeighbors(start_node);
-            foreach (GraphNode<Cell> start_neighbor in start_neighbors)
-            {
-                TO_VISIT.Add(start_neighbor);
-            }
+            
+            
+            TO_VISIT.Add(start_node);
+
             while (TO_VISIT.Count != 0)
             {
-                double min_F = Int32.MaxValue; // default value
-                int min_node_index = Int32.MaxValue; // default value
+                double min_F = TO_VISIT[0].F(); // default value
+                int min_node_index = 0; // default value
                 GraphNode<Cell> s;
 
                 for (int index = 0; index < TO_VISIT.Count; index++)
                 {
-                    if (TO_VISIT[index].F() < min_F)
+                    if (TO_VISIT[index].F() <= min_F)
                     {
                         s = TO_VISIT[index];
                         min_node_index = index;
                     }
                 }
+
+
                 s = TO_VISIT[min_node_index];
                 TO_VISIT.RemoveAt(min_node_index);
 
-                if (s.Data.x == end_node.Data.x && s.Data.y == end_node.Data.y)
+                if (s ==  end_node)
                 {
-                    foreach (GraphNode<Cell> visited_node in VISITED)
+                    // buildPath()
+                    GraphNode<Cell> currentNode = end_node;
+                    
+                    while (currentNode != null)
                     {
-                        path.Add(new Tuple<int, int>(visited_node.Data.x, visited_node.Data.y));
+                        path.Add(new Tuple<int, int>(currentNode.Data.x, currentNode.Data.y));
+                        currentNode = currentNode.CameFrom;
                     }
                     return path;
                 }
@@ -71,26 +76,22 @@ namespace Ascii_the_Barbarian
 
                 foreach (GraphNode<Cell> s_prim in s_neighbors)
                 {
-                    foreach (GraphNode<Cell> visited_node in VISITED)
+                    if (!(VISITED.Contains(s_prim)))
                     {
-
-                        if (s_prim.Data.x == visited_node.Data.x && s_prim.Data.y == visited_node.Data.y)
+                        if (s_prim.GValue > s.GValue + 1)
                         {
-                            if (s_prim.GValue > s.GValue + 1)
-                            {
-                                s_prim.GValue = s.GValue + 1;
-                                s_prim.CameFrom = s;
-                                TO_VISIT.Add(s_prim);
-                            }
-
+                            s_prim.GValue = s.GValue + 1;
+                            s_prim.CameFrom = s;
+                            TO_VISIT.Add(s_prim);
                         }
-                        VISITED.Add(s);
+
                     }
+                    VISITED.Add(s);
                 }
             }
             return path;
         }
-
     }
 }
+
 

@@ -24,7 +24,19 @@ namespace Ascii_the_Barbarian
         {
             if (index % 4 == 0)
             {
-               //path = solver.AAlgorithmSolver( , gameObject);
+                foreach (GameObject go in gameObjects) {
+                    if (go.tag == "User")
+                    {
+                        int x = 0;
+                        path = solver.AAlgorithmSolver(go, gameObject);
+
+                        foreach (Tuple<int, int> path_t in path){
+                            Console.WriteLine(path_t);
+                            Console.WriteLine(x);
+                            x++;
+                        }
+                    }
+                }
             }
             else
             {
