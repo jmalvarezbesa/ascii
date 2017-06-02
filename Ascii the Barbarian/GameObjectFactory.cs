@@ -8,6 +8,12 @@ namespace Ascii_the_Barbarian
 {
     class GameObjectFactory
     {
+        private Level lvl;
+        public GameObjectFactory(Level lvl)
+        {
+            this.lvl = lvl;
+        }
+
 
         public GameObject CreateObject(int x, int y, MapSymbol symbol)
         {
@@ -68,7 +74,7 @@ namespace Ascii_the_Barbarian
             }
             else if (symbol == MapSymbol.Zombie)
             {
-                GameObject rat = new GameObject(new ZombieControllerComponent(), new GenericPhysicsComponent(deltaTime), new GenericGraphicsComponent('Z'), new NullAudioComponent());
+                GameObject rat = new GameObject(new ZombieControllerComponent(lvl), new GenericPhysicsComponent(deltaTime), new GenericGraphicsComponent('Z'), new NullAudioComponent());
                 rat.Start(new int[] { x, y }, "Zombie");
                 return rat;
             }

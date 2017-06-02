@@ -42,11 +42,10 @@ namespace Ascii_the_Barbarian
         static void Main(string[] args)
         {
             Level lvl = new Level();
-            GameObjectFactory object_factory = new GameObjectFactory();
-            GameObject ascii = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('X'), new NullAudioComponent());
-
             lvl.LoadFromFile("rat_level.txt");
 
+            GameObjectFactory object_factory = new GameObjectFactory(lvl);
+            GameObject ascii = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('X'), new NullAudioComponent());
             doubleBuffer = new DoubleBuffer.DoubleGraphicsBuffer(lvl.Width, lvl.Height, ConsoleColor.White, ConsoleColor.DarkGreen);
 
             for (int x = 0; x < lvl.Width; x++)
