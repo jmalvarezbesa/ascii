@@ -11,11 +11,13 @@ namespace Ascii_the_Barbarian
         private int v;
         private int index;
         private GraphAlgorithmSolver solver;
+        private Level lvl;
         private List<Tuple<int, int>> path; 
 
         public ZombieControllerComponent(Level level)
         {
-            this.solver = new GraphAlgorithmSolver(new Graph(level));
+            this.solver = new GraphAlgorithmSolver();
+            this.lvl = level;
             this.v = 1;
             this.index = 0;
             this.path = new List<Tuple<int, int>>();
@@ -27,7 +29,7 @@ namespace Ascii_the_Barbarian
                 foreach (GameObject go in gameObjects) {
                     if (go.tag == "User")
                     {
-                        path = solver.AAlgorithmSolver(go, gameObject);
+                        path = solver.AAlgorithmSolver(go, gameObject, lvl);
                         if (path.Count != 0)
                         {
                             Console.WriteLine(path);
