@@ -24,7 +24,12 @@ namespace Ascii_the_Barbarian
         {
             if (index % 4 == 0)
             {
-               // path = solver.AAlgorithmSolver( , gameObject);
+                foreach (GameObject go in gameObjects) {
+                    if (go.tag == "User")
+                    {
+                        path = solver.AAlgorithmSolver(go, gameObject);
+                    }
+                }
             }
             else
             {
