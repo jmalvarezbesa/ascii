@@ -22,7 +22,7 @@ namespace Ascii_the_Barbarian
             {
                 IObserver AsciiControllerComponent = new AsciiControllerComponent();
                 IObserver AsciiAudioComponent = new GenericAudioComponent();
-                AsciiPhysicsComponent AsciiPhysicsComponent = new AsciiPhysicsComponent();
+                AsciiPhysicsComponent AsciiPhysicsComponent = new AsciiPhysicsComponent(1000);
                 AsciiPhysicsComponent.AddObserver(AsciiControllerComponent);
                 AsciiPhysicsComponent.AddObserver(AsciiAudioComponent);
                 GameObject ascii = new GameObject(new AsciiControllerComponent(), AsciiPhysicsComponent, new GenericGraphicsComponent('@'), new NullAudioComponent());
@@ -44,7 +44,7 @@ namespace Ascii_the_Barbarian
             }
             else if (symbol == MapSymbol.Arrow)
             {
-                GameObject arrow = new GameObject(new ArrowControllerComponent(1), new GenericPhysicsComponent(deltaTime), new GenericGraphicsComponent('~'), new NullAudioComponent());
+                GameObject arrow = new GameObject(new ArrowControllerComponent(1), new GenericPhysicsComponent(deltaTime/2), new GenericGraphicsComponent('~'), new NullAudioComponent());
                 arrow.Start(new int[] { x, y }, "Arrow");
                 return arrow;
             }
@@ -68,7 +68,7 @@ namespace Ascii_the_Barbarian
             }
             else if (symbol == MapSymbol.Rat)
             {
-                GameObject rat = new GameObject(new RatControllerComponent(), new GenericPhysicsComponent(deltaTime), new GenericGraphicsComponent('R'), new NullAudioComponent());
+                GameObject rat = new GameObject(new RatControllerComponent(), new AsciiPhysicsComponent(deltaTime/2), new GenericGraphicsComponent('R'), new NullAudioComponent());
                 rat.Start(new int[] { x, y }, "Rat");
                 return rat;
             }

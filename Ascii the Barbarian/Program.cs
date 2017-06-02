@@ -80,7 +80,6 @@ namespace Ascii_the_Barbarian
                 time.Start();
                 movement positions = ProcessInput();
                 doubleBuffer.Clear();
-                ascii.Update(gameObjects, doubleBuffer, positions);
 
                 foreach (GameObject gameObject in gameObjects)
                 {
