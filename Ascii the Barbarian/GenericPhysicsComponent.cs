@@ -25,51 +25,58 @@ namespace Ascii_the_Barbarian
             //x
             if (gameObject.velocity[0] > 0)
             {
+                if (gameObject.positionBuffer[0] < 0) { gameObject.positionBuffer[0] = 0; }
                 if (vx < 1)
                 {
-                    gameObject.positionBuffer[0] += vx;
+                    gameObject.positionBuffer[0] += (double)Math.Round(vx,4);
                 }
                 else
                 {
-                    gameObject.position[0] += Convert.ToInt32(Math.Truncate(vx));
-                    gameObject.positionBuffer[0] = Math.Round(vx - Math.Truncate(vx), 4);
+                    gameObject.position[0] += (int)Convert.ToInt32(Math.Truncate(vx));
+                    gameObject.positionBuffer[0] = (double)Math.Round(vx - Math.Truncate(vx), 4);
                 }
             }
-            else
+            else if (gameObject.velocity[0] < 0)
             {
-                if (vx < -1)
+                if (gameObject.positionBuffer[0] > 0) { gameObject.positionBuffer[0] = 0; }
+                if (vx > -1)
                 {
-                    gameObject.positionBuffer[0] += vx;
+                    gameObject.positionBuffer[0] += (double)Math.Round(vx, 4); ;
                 }
                 else
                 {
-                    gameObject.position[0] += Convert.ToInt32(Math.Truncate(vx));
-                    gameObject.positionBuffer[0] = Math.Round(vx - Math.Truncate(vx), 4);
+                    gameObject.position[0] += (int)Convert.ToInt32(Math.Truncate(vx));
+                    gameObject.positionBuffer[0] = (double)Math.Round(vx - Math.Truncate(vx), 4);
                 }
             }
             //y
-            if (gameObject.velocity[1] > 0)            {
+            if (gameObject.velocity[1] > 0)
+            {
+                if (gameObject.positionBuffer[1] < 0) { gameObject.positionBuffer[1] = 0; }
                 if (vy < 1)
                 {
-                    gameObject.positionBuffer[1] += vy;
+                    gameObject.positionBuffer[1] += (double)Math.Round(vy, 4);
                 }
                 else
                 {
-                    gameObject.position[1] += Convert.ToInt32(Math.Truncate(vy));
-                    gameObject.positionBuffer[1] = Math.Round(vy - Math.Truncate(vy), 4);
+                    gameObject.position[1] += (int)Convert.ToInt32(Math.Truncate(vy));
+                    gameObject.positionBuffer[1] = (double)Math.Round(vy - Math.Truncate(vy), 4);
                 }
             }
-            else
+            else if (gameObject.velocity[1] < 0)
             {
-                if (vy <-1)                {
-                    gameObject.positionBuffer[1] += vy;
+                if (gameObject.positionBuffer[1] > 0) { gameObject.positionBuffer[1] = 0; }
+                if (vy > -1)
+                {
+                    gameObject.positionBuffer[1] += (double)Math.Round(vy, 4); ;
                 }
                 else
                 {
-                    gameObject.position[1] += Convert.ToInt32(Math.Truncate(vy));
-                    gameObject.positionBuffer[1] = Math.Round(vy - Math.Truncate(vy), 4);
+                    gameObject.position[1] += (int)Convert.ToInt32(Math.Truncate(vy));
+                    gameObject.positionBuffer[1] = (double)Math.Round(vy - Math.Truncate(vy), 4);
                 }
             }
+            gameObject.velocity = new int[] { 0, 0 };
         }
     }
 }
