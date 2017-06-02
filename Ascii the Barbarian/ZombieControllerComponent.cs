@@ -27,13 +27,10 @@ namespace Ascii_the_Barbarian
                 foreach (GameObject go in gameObjects) {
                     if (go.tag == "User")
                     {
-                        int x = 0;
                         path = solver.AAlgorithmSolver(go, gameObject);
-
-                        foreach (Tuple<int, int> path_t in path){
-                            Console.WriteLine(path_t);
-                            Console.WriteLine(x);
-                            x++;
+                        if (path.Count != 0)
+                        {
+                            Console.WriteLine(path);
                         }
                     }
                 }
