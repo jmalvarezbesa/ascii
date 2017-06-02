@@ -84,8 +84,8 @@ namespace Ascii_the_Barbarian
                             TO_VISIT.Add(s_prim);
                         }
                     }
-                    VISITED.Add(s);
                 }
+                VISITED.Add(s);
             }
             return path;
         }
