@@ -42,7 +42,7 @@ namespace Ascii_the_Barbarian
         static void Main(string[] args)
         {
             Level lvl = new Level();
-            lvl.LoadFromFile("test2.txt");
+            lvl.LoadFromFile("rat_level.txt");
 
             GameObjectFactory object_factory = new GameObjectFactory(lvl);
             GameObject ascii = new GameObject(new NullControllerComponent(), new NullPhysicsComponent(), new GenericGraphicsComponent('X'), new NullAudioComponent());

@@ -18,8 +18,8 @@ namespace Ascii_the_Barbarian
         public List<Tuple<int, int>> AAlgorithmSolver(GameObject ascii, GameObject zombie)
         {
             List<Tuple<int, int>> path = new List<Tuple<int, int>>();
-            GraphNode<Cell> end_node = graph.GetNode(zombie.position[0], zombie.position[1]);
-            GraphNode<Cell> start_node = graph.GetNode(ascii.position[0], ascii.position[1]);
+            GraphNode<Cell> start_node = graph.GetNode(zombie.position[0], zombie.position[1]);
+            GraphNode<Cell> end_node = graph.GetNode(ascii.position[0], ascii.position[1]);
             start_node.GValue = 0;
             // the rest of the Nodes start with int36.MaxValue
             List<GraphNode<Cell>> TO_VISIT = new List<GraphNode<Cell>>();
