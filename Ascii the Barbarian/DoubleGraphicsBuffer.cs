@@ -468,5 +468,10 @@ namespace DoubleBuffer
                 myBuf.Draw(character.ToString(), posX, posY, (short)color);
             }
         }
+
+        internal void SetBackgroundColor(ConsoleColor consoleColor)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -43,9 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionNode.cs" />
     <Compile Include="ArrowControllerComponent.cs" />
     <Compile Include="AsciiPhysicsComponent.cs" />
+    <Compile Include="BinaryDecisionNode.cs" />
+    <Compile Include="DayNightCycle.cs" />
+    <Compile Include="DecisionNode.cs" />
     <Compile Include="DoubleGraphicsBuffer.cs" />
+    <Compile Include="Evaluator.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="GameObjectFactory.cs" />
     <Compile Include="GazeControllerComponent.cs" />
@@ -57,6 +62,7 @@
     <Compile Include="IAudioComponent.cs" />
     <Compile Include="IControllerComponent.cs" />
     <Compile Include="IGraphicsComponent.cs" />
+    <Compile Include="Node.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="IPhysicsComponent.cs" />
     <Compile Include="Level.cs" />
